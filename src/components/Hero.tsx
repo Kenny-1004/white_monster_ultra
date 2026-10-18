@@ -94,7 +94,7 @@ export default function Hero() {
             Zero Calories <span style={{ color: "var(--ice)" }}>+</span> Zero Sugar
           </motion.p>
 
-          <h1 className="display" style={{ fontSize: "clamp(46px, 7.4vw, 104px)", marginTop: 18 }}>
+                <h1 className="display" style={{ fontSize: "clamp(46px, 7.4vw, 104px)", marginTop: 18 }}>
             {["All the", "energy.", "Zero", "sugar."].map((line, i) => (
               <span key={line} style={{ display: "block", overflow: "hidden", paddingBottom: "0.04em" }}>
                 <motion.span
@@ -109,6 +109,7 @@ export default function Hero() {
               </span>
             ))}
           </h1>
+
 
           <motion.p
             initial={{ opacity: 0, y: 14 }}
