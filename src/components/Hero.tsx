@@ -271,8 +271,8 @@ export default function Hero() {
 									background:
 										"linear-gradient(100deg, transparent 35%, rgba(255,255,255,0.55) 50%, transparent 65%)",
 									WebkitMaskImage:
-										"url(/white-monster-ultra.png)",
-									maskImage: "url(/white-monster-ultra.png)",
+										"url(/white-monster-ultra.webp)",
+									maskImage: "url(/white-monster-ultra.webp)",
 									WebkitMaskSize: "100% 100%",
 									maskSize: "100% 100%",
 									mixBlendMode: "soft-light",

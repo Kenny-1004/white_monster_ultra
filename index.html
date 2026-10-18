@@ -2,20 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>White Monster Ultra | Zero Sugar</title>
+    <meta name="description" content="Monster Energy Zero Ultra: light, crisp and refreshing, with zero sugar and the full Monster energy blend." />
     <meta name="theme-color" content="#f4f4f2" />
-    <meta name="description" content="White Monster Ultra — Zero Sugar. Zero Calories. Zero Compromise." />
-    <link rel="preload" as="image" href="/white-monster-ultra.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="White Monster Ultra | All the energy. Zero sugar." />
+    <meta property="og:description" content="Light, crisp and refreshing, with zero sugar and the full Monster energy blend." />
+    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="White Monster Ultra | All the energy. Zero sugar." />
+    <meta name="twitter:image" content="/og-image.jpg" />
+
+    <link
+      rel="preload"
+      as="image"
+      type="image/webp"
+      href="/white-monster-ultra.webp"
+      imagesrcset="/white-monster-ultra-320.webp 320w, /white-monster-ultra.webp 603w"
+      imagesizes="(max-width: 900px) 45vw, 280px"
+      fetchpriority="high"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>White Monster Ultra | Zero Sugar</title>
   </head>
   <body>
+    <noscript>
+      <p style="padding: 24px; font-family: sans-serif">White Monster Ultra: all the energy, zero sugar. Enable JavaScript to view the full experience.</p>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

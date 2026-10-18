@@ -82,13 +82,13 @@ export default function CallToAction() {
 				className="cta-can cta-can-left"
 				style={{ y: canLeftY, rotate: -16 }}
 			>
-				<CanImage />
+				<CanImage sizes="(max-width: 900px) 96px, 170px" />
 			</motion.div>
 			<motion.div
 				className="cta-can cta-can-right"
 				style={{ y: canRightY, rotate: 13 }}
 			>
-				<CanImage />
+				<CanImage sizes="(max-width: 900px) 96px, 170px" />
 			</motion.div>
 
 			<div

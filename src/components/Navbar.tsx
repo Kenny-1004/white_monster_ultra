@@ -107,7 +107,7 @@ export default function Navbar() {
 						}}
 					>
 						<img
-							src="/monster-claw.png"
+							src="/monster-claw.webp"
 							alt=""
 							width={24}
 							height={36}

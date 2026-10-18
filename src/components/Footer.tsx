@@ -32,7 +32,7 @@ export default function Footer() {
 						}}
 					>
 						<img
-							src="/monster-claw.png"
+							src="/monster-claw.webp"
 							alt="Monster"
 							width={30}
 							height={46}
