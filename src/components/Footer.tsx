@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="wrap footer-grid" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr 1fr 1fr", gap: 40 }}>
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-            <img src="/claw.svg" alt="" width={36} height={36} style={{ borderRadius: 9, boxShadow: "0 2px 10px rgba(0,0,0,0.1)" }} />
+            <img src="/monster-claw.png" alt="Monster" width={30} height={46} style={{ height: 46, width: "auto" }} />
             <div className="display" style={{ fontSize: 22 }}>
               White Monster <span className="chrome-text">Ultra</span>
             </div>

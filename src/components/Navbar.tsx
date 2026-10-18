@@ -38,7 +38,7 @@ export default function Navbar() {
         style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 76 }}
       >
         <a href="#hero" style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <img src="/claw.svg" alt="" width={28} height={28} style={{ borderRadius: 7, boxShadow: "0 2px 8px rgba(0,0,0,0.1)" }} />
+          <img src="/monster-claw.png" alt="Monster" width={24} height={36} style={{ height: 36, width: "auto" }} />
           <span className="display brand" style={{ fontSize: 15, letterSpacing: "0.02em" }}>
             <span className="brand-long">White </span>Monster <span className="chrome-text">Ultra</span>
           </span>
