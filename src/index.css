@@ -111,6 +111,7 @@ a {
 }
 
 .can-img {
+  height: auto;
   filter: var(--shadow-can);
   user-select: none;
   -webkit-user-drag: none;
