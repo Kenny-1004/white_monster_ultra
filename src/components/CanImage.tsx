@@ -18,7 +18,7 @@ export default function CanImage({
 			loading={eager ? "eager" : "lazy"}
 			draggable={false}
 			className={`can-img ${className}`}
-			style={{ height: "auto", ...style }}
+			style={style}
 		/>
 	);
 }
