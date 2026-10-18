@@ -216,10 +216,6 @@ export default function ScrollStory() {
 					</motion.div>
 				</div>
 
-				<div className="story-head">
-					<p className="eyebrow">The Taste</p>
-				</div>
-
 				<div className="story-stage">
 					<motion.svg
 						viewBox="0 0 500 500"
@@ -289,7 +285,6 @@ export default function ScrollStory() {
           position: absolute; right: 4%; top: 50%; transform: translateY(-50%);
           font-size: 38vw; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px rgba(13,13,13,0.05);
         }
-        .story-head { position: absolute; top: 110px; left: 0; right: 0; text-align: center; z-index: 3; }
         .story-stage { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 1; }
         .story-ring { position: absolute; width: min(640px, 92vw); height: auto; }
         .story-can { position: relative; }
@@ -303,7 +298,6 @@ export default function ScrollStory() {
         .story-ticks { position: absolute; right: 28px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 3; }
         @media (max-width: 900px) {
           .story { height: 300vh; }
-          .story-head { top: 92px; }
           .story-stage { align-items: flex-start; padding-top: 140px; }
           .story-can img { height: 40vh; }
           .story-ring { top: 120px; width: min(480px, 96vw); }
