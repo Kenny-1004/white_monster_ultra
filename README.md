@@ -1,32 +1,32 @@
-# React + TypeScript + Vite
+# White Monster Ultra
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A fan-made, scroll-driven landing page for Monster Energy Zero Ultra, built with React, TypeScript, Vite and [Motion](https://motion.dev).
 
-Currently, two official plugins are available:
+## Run it
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # type-check + production build into dist/
+npm run lint     # oxlint
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Structure
+
+| Section | File | Motion |
+| --- | --- | --- |
+| Nav + mobile menu | `src/components/Navbar.tsx` | Scroll-aware glass bar, scroll-spy, animated full-screen menu |
+| Hero | `src/components/Hero.tsx` | Line-by-line headline reveal, layered parallax, mouse tilt and sheen on the can |
+| Marquee | `src/components/MarqueeStrip.tsx` | Infinite ticker |
+| Why Ultra | `src/components/Features.tsx` | Staggered card reveals, parallax filigree |
+| The Taste | `src/components/ScrollStory.tsx` | Pinned section: chapters cross-fade, ring rotates, filigree draws in |
+| Nutrition | `src/components/Nutrition.tsx` | Scroll-scaled "0g", animated counters |
+| Find It | `src/components/CallToAction.tsx` | Opposing text bands and floating cans |
+
+Shared pieces: `CanImage.tsx` (responsive WebP can), `Filigree.tsx` (baroque scrollwork from the can art, optionally drawn by scroll progress). Design tokens live in `src/index.css`.
+
+Animations respect the OS "reduce motion" setting via `MotionConfig reducedMotion="user"`.
+
+## Assets
+
+`public/white-monster-ultra*.webp` and `public/monster-claw.webp` are cut from a product photo of the can. Monster Energy names, logos and can artwork are trademarks of Monster Energy Company; this project is unofficial and not affiliated with them.
