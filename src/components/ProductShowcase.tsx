@@ -1,113 +1,103 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import CanGraphic from "./CanGraphic";
+import CanImage from "./CanImage";
+import Filigree from "./Filigree";
+
+const notes = [
+  { h: "Crisp Citrus", p: "A bright, clean top note that cuts right through the grind." },
+  { h: "Light Body", p: "No syrupy weight, so every sip stays refreshing." },
+  { h: "Smooth Finish", p: "Goes down easy, can after can." },
+];
 
 export default function ProductShowcase() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [-16, 16]);
-  const y = useTransform(scrollYProgress, [0, 1], [60, -60]);
-  const haloScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.85, 1.1, 0.85]);
-  const haloOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.4, 0.9, 0.4]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [-14, 14]);
+  const y = useTransform(scrollYProgress, [0, 1], [80, -80]);
+  const ringScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.05, 0.9]);
+  const ringRotate = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+  const filiL = useTransform(scrollYProgress, [0, 1], [200, -200]);
+  const filiR = useTransform(scrollYProgress, [0, 1], [-100, 160]);
+
+  const ring = "ZERO CALORIES + ZERO SUGAR + ZERO CALORIES + ZERO SUGAR + ";
 
   return (
     <section
       id="flavor"
       ref={ref}
       className="section-pad"
-      style={{
-        position: "relative",
-        background: "linear-gradient(180deg, #080808 0%, #0c0c0a 50%, #080808 100%)",
-        overflow: "hidden",
-      }}
+      style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, var(--bg) 0%, #ffffff 50%, var(--bg) 100%)" }}
     >
-      <motion.div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          width: 720,
-          height: 720,
-          marginLeft: -360,
-          marginTop: -360,
-          scale: haloScale,
-          opacity: haloOpacity,
-          background: "radial-gradient(circle, rgba(182,255,60,0.22) 0%, rgba(182,255,60,0) 70%)",
-          pointerEvents: "none",
-        }}
-      />
+      <motion.div style={{ position: "absolute", left: "-6%", top: "16%", width: 480, y: filiL, opacity: 0.6 }}>
+        <Filigree />
+      </motion.div>
+      <motion.div style={{ position: "absolute", right: "-6%", top: "30%", width: 480, y: filiR, opacity: 0.6 }}>
+        <Filigree flip />
+      </motion.div>
 
-      <div className="wrap" style={{ textAlign: "center", marginBottom: 20, position: "relative", zIndex: 2 }}>
-        <motion.p
-          className="eyebrow"
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Crisp. Clean. Ultra.
+      <div className="wrap" style={{ textAlign: "center", position: "relative", zIndex: 2 }}>
+        <motion.p className="eyebrow" initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+          The Taste
         </motion.p>
         <motion.h2
           className="display"
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          style={{ fontSize: "clamp(36px, 6vw, 72px)", marginTop: 10 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          style={{ fontSize: "clamp(34px, 5.6vw, 68px)", marginTop: 16 }}
         >
-          One Can. Zero Hesitation.
+          Light. Crisp. <span className="chrome-text">Ultra.</span>
         </motion.h2>
       </div>
 
-      <div
-        style={{
-          position: "relative",
-          zIndex: 2,
-          display: "flex",
-          justifyContent: "center",
-          paddingTop: 20,
-        }}
-      >
-        <motion.div style={{ rotate, y, transformPerspective: 1200 }}>
-          <CanGraphic className="showcase-can" />
+      <div style={{ position: "relative", zIndex: 2, display: "flex", justifyContent: "center", padding: "50px 0 30px" }}>
+        {/* engraved ring echoing the can's top band */}
+        <motion.svg
+          viewBox="0 0 500 500"
+          className="showcase-ring"
+          style={{ position: "absolute", top: "50%", left: "50%", x: "-50%", y: "-50%", scale: ringScale, rotate: ringRotate }}
+          aria-hidden
+        >
+          <defs>
+            <path id="ringPath" d="M250,250 m-210,0 a210,210 0 1,1 420,0 a210,210 0 1,1 -420,0" />
+          </defs>
+          <circle cx="250" cy="250" r="235" fill="none" stroke="var(--silver-2)" strokeWidth="1" />
+          <circle cx="250" cy="250" r="185" fill="none" stroke="var(--silver-2)" strokeWidth="1" />
+          <text fontFamily="Cinzel, serif" fontSize="22" fontWeight="600" letterSpacing="7" fill="var(--silver-3)">
+            <textPath href="#ringPath">{ring}</textPath>
+          </text>
+        </motion.svg>
+
+        <motion.div style={{ rotate, y, position: "relative" }}>
+          <CanImage className="showcase-can" />
         </motion.div>
       </div>
 
-      <div
-        className="wrap"
-        style={{
-          position: "relative",
-          zIndex: 2,
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr",
-          gap: 24,
-          marginTop: -40,
-        }}
-      >
-        {[
-          { h: "Sharp Citrus Edge", p: "A crisp top note that cuts through the grind." },
-          { h: "Clean Mid-Palate", p: "No syrupy aftertaste — built for repeat cans." },
-          { h: "Smooth Finish", p: "Goes down easy, so the next rep goes down easier." },
-        ].map((item, i) => (
+      <div className="wrap notes-grid" style={{ position: "relative", zIndex: 2, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, marginTop: 40 }}>
+        {notes.map((item, i) => (
           <motion.div
             key={item.h}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ delay: i * 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             style={{ textAlign: "center", padding: "0 10px" }}
           >
-            <h4 style={{ fontSize: 17, fontWeight: 700, marginBottom: 8 }}>{item.h}</h4>
+            <div className="serif" style={{ fontSize: 12, color: "var(--ice-ink)", letterSpacing: "0.3em", marginBottom: 10 }}>0{i + 1}</div>
+            <h4 className="display" style={{ fontSize: 20, marginBottom: 10 }}>{item.h}</h4>
             <p style={{ fontSize: 14, color: "var(--ink-dim)", lineHeight: 1.6 }}>{item.p}</p>
           </motion.div>
         ))}
       </div>
 
       <style>{`
-        .showcase-can { width: min(300px, 58vw); filter: drop-shadow(0 40px 70px rgba(0,0,0,0.65)); }
+        .showcase-can { width: auto; height: min(62vh, 560px); }
+        .showcase-ring { width: min(620px, 120vw); height: auto; }
         @media (max-width: 760px) {
-          #flavor .wrap:last-child { grid-template-columns: 1fr !important; gap: 36px !important; margin-top: 30px !important; }
+          .notes-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+          .showcase-can { height: 46vh; }
         }
       `}</style>
     </section>

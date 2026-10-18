@@ -1,13 +1,6 @@
 import { motion } from "motion/react";
 
-const items = [
-  "ZERO SUGAR",
-  "ZERO CALORIES",
-  "FULL FLAVOR",
-  "140MG CAFFEINE",
-  "B-VITAMINS",
-  "ZERO COMPROMISE",
-];
+const items = ["Zero Calories", "Zero Sugar", "Light & Crisp", "Full Energy Blend", "B-Vitamins", "Zero Ultra"];
 
 export default function MarqueeStrip() {
   const loop = [...items, ...items];
@@ -15,35 +8,36 @@ export default function MarqueeStrip() {
   return (
     <div
       style={{
-        background: "var(--acid)",
+        background: "linear-gradient(180deg, #151517, #0b0b0c)",
         overflow: "hidden",
-        padding: "16px 0",
-        transform: "rotate(-1.2deg) scale(1.02)",
+        padding: "20px 0",
         position: "relative",
         zIndex: 3,
+        borderTop: "1px solid #2a2a2d",
+        borderBottom: "1px solid #2a2a2d",
       }}
     >
       <motion.div
-        style={{ display: "flex", gap: 48, whiteSpace: "nowrap", width: "max-content" }}
+        style={{ display: "flex", whiteSpace: "nowrap", width: "max-content" }}
         animate={{ x: ["0%", "-50%"] }}
-        transition={{ repeat: Infinity, duration: 22, ease: "linear" }}
+        transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
       >
         {loop.map((item, i) => (
           <span
             key={i}
+            className="serif"
             style={{
-              fontFamily: "Teko, sans-serif",
-              fontWeight: 700,
+              fontWeight: 600,
               fontSize: 22,
-              letterSpacing: "0.06em",
-              color: "#0a0a0a",
+              letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              color: "#e7e8ea",
               display: "flex",
               alignItems: "center",
-              gap: 24,
             }}
           >
             {item}
-            <span style={{ fontSize: 16 }}>●</span>
+            <span style={{ color: "var(--ice)", margin: "0 34px", fontSize: 26, fontFamily: "Inter" }}>+</span>
           </span>
         ))}
       </motion.div>

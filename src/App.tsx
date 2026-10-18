@@ -21,7 +21,7 @@ export default function App() {
           left: 0,
           right: 0,
           height: 2,
-          background: "var(--acid)",
+          background: "linear-gradient(90deg, var(--silver-3), var(--ink) 60%, var(--ice))",
           transformOrigin: "0%",
           scaleX: progress,
           zIndex: 200,
@@ -31,9 +31,7 @@ export default function App() {
       <main>
         <Hero />
         <MarqueeStrip />
-        <div id="product">
-          <Features />
-        </div>
+        <Features />
         <ProductShowcase />
         <Nutrition />
         <CallToAction />
