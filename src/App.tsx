@@ -1,4 +1,4 @@
-import { motion, useScroll, useSpring } from "motion/react";
+import { MotionConfig, motion, useScroll, useSpring } from "motion/react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import MarqueeStrip from "./components/MarqueeStrip";
@@ -13,7 +13,8 @@ export default function App() {
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 24 });
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
+      <a href="#main" className="skip-link">Skip to content</a>
       <motion.div
         style={{
           position: "fixed",
@@ -28,7 +29,7 @@ export default function App() {
         }}
       />
       <Navbar />
-      <main>
+      <main id="main">
         <Hero />
         <MarqueeStrip />
         <Features />
@@ -37,6 +38,6 @@ export default function App() {
         <CallToAction />
       </main>
       <Footer />
-    </>
+    </MotionConfig>
   );
 }

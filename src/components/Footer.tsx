@@ -1,3 +1,5 @@
+const year = new Date().getFullYear();
+
 export default function Footer() {
   const cols = [
     { h: "Product", l: ["Zero Ultra", "Nutrition", "Ingredients", "FAQ"] },
@@ -31,7 +33,7 @@ export default function Footer() {
         ))}
       </div>
       <div className="wrap" style={{ marginTop: 56, paddingTop: 24, borderTop: "1px solid var(--line)", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 12, fontSize: 12, color: "var(--ink-faint)" }}>
-        <span>© {new Date().getFullYear()} White Monster Ultra concept. Fan-made landing page, not affiliated with Monster Energy.</span>
+        <span>© {year} White Monster Ultra concept. Fan-made landing page, not affiliated with Monster Energy.</span>
         <span>Not recommended for children, pregnant or nursing women, or people sensitive to caffeine.</span>
       </div>
       <style>{`
